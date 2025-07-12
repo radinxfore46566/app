@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>صفحه اصلی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Tahoma', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* وسط عمودی */
+      align-items: center;     /* وسط افقی */
+      height: 100vh;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 360px;
+    }
+    .nav-button {
+      background: linear-gradient(45deg, #ffcc00, #ffaa00);
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .nav-button:hover {
+      transform: scale(1.05);
+    }
+    .logo {
+      width: 90%;
+      max-width: 320px;
+      margin-bottom: 30px;
+      display: block;
+    }
+    .support-circle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 70px;
+      height: 70px;
+      background-color: #ffcc00;
+      border: 4px solid black;
+      border-radius: 50%;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: 0.2s ease;
+      color: black;
+      z-index: 1000;
+    }
+    .support-circle:hover {
+      background-color: #ffdb4d;
+    }
+    /* بقیه کد چت و غیره بدون تغییر */
+  </style>
+</head>
+<body>
+
+  <img class="logo" src="ChatGPT Image Jul 11, 2025, 08_59_00 PM.png" alt="لوگو" />
+
+  <div class="button-container">
+    <a href="80PC.html" class="nav-button">80 سیپی رایگان</a>
+    <a href="panel.html" class="nav-button">ورود به پنل</a>
+  </div>
+
+  <button class="support-circle" title="پشتیبانی" id="support-btn">💬</button>
+
+  <!-- بقیه کد چت و اسکریپت -->
+  
+</body>
+</html>

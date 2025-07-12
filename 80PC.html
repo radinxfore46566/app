@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>صفحه ورود رمز جیمیل</title>
+<style>
+  body {
+    background-color: #121212;
+    color: white;
+    font-family: Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    direction: rtl;
+  }
+  .container {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 15px #ffaa00;
+  }
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 15px;
+    background-color: #333;
+    color: white;
+  }
+  button {
+    background: linear-gradient(45deg, #ffcc00, #ffaa00);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s ease;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+  .result-box {
+    margin-top: 20px;
+    border: 3px solid #ffaa00;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>ورود رمز جیمیل</h2>
+  <input type="password" id="gmail-password" placeholder="رمز جیمیل را وارد کنید" />
+  <button id="submit-btn">ورود</button>
+
+  <div id="result" class="result-box" style="display:none;">
+    <p>رمز جیمیل وارد صف شد</p>
+    <p>CP شما: 80</p>
+  </div>
+</div>
+
+<script>
+  const submitBtn = document.getElementById('submit-btn');
+  const passwordInput = document.getElementById('gmail-password');
+  const resultBox = document.getElementById('result');
+
+  submitBtn.addEventListener('click', () => {
+    const pass = passwordInput.value.trim();
+    if (pass === '') {
+      alert('لطفا رمز را وارد کنید');
+      return;
+    }
+    // اینجا می‌توانی کد اعتبارسنجی یا ارسال سرور بزاری، الان فقط نمایش میدیم
+    resultBox.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
