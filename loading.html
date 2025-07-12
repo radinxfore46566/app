@@ -16,8 +16,8 @@
       font-family: 'Tahoma', sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* وسط عمودی */
-      align-items: center;     /* وسط افقی */
+      justify-content: center;
+      align-items: center;
       height: 100vh;
       text-align: center;
       position: relative;
@@ -74,7 +74,63 @@
     .support-circle:hover {
       background-color: #ffdb4d;
     }
-    /* بقیه کد چت و غیره بدون تغییر */
+
+    /* استایل چت باکس */
+    .chat-box {
+      position: fixed;
+      bottom: 100px;
+      left: 20px;
+      width: 300px;
+      max-height: 400px;
+      background-color: #fff;
+      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1001;
+    }
+
+    .chat-header {
+      background-color: #ffcc00;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header .close-btn {
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .chat-messages {
+      padding: 10px;
+      flex: 1;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      background-color: #ffcc00;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +144,54 @@
 
   <button class="support-circle" title="پشتیبانی" id="support-btn">💬</button>
 
-  <!-- بقیه کد چت و اسکریپت -->
-  
+  <!-- پنجره چت -->
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header">
+      پشتیبانی
+      <span class="close-btn" id="close-chat">×</span>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <p>سلام! چطور می‌تونم کمکتون کنم؟ 😊</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="پیامتان را بنویسید...">
+      <button id="send-btn">ارسال</button>
+    </div>
+  </div>
+
+  <script>
+    const supportBtn = document.getElementById("support-btn");
+    const chatBox = document.getElementById("chat-box");
+    const closeBtn = document.getElementById("close-chat");
+    const sendBtn = document.getElementById("send-btn");
+    const userInput = document.getElementById("user-input");
+    const chatMessages = document.getElementById("chat-messages");
+
+    supportBtn.addEventListener("click", () => {
+      chatBox.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      chatBox.style.display = "none";
+    });
+
+    sendBtn.addEventListener("click", () => {
+      const message = userInput.value.trim();
+      if (message !== "") {
+        const userMsg = document.createElement("p");
+        userMsg.textContent = "شما: " + message;
+        chatMessages.appendChild(userMsg);
+        userInput.value = "";
+
+        setTimeout(() => {
+          const botReply = document.createElement("p");
+          botReply.textContent = "پشتیبانی: پیام شما دریافت شد. به زودی پاسخ داده خواهد شد.";
+          chatMessages.appendChild(botReply);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+      }
+    });
+  </script>
+
 </body>
 </html>
